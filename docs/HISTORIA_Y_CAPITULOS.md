@@ -67,8 +67,8 @@ Inicias en *"La Jarra Mellada"*. Sostienes una bayeta sucia mientras escuchas a 
     │                   │                       │                   │
     └───────────────────┴───────────┬───────────┴───────────────────┘
                                     ▼
-                   [CAPÍTULO 1: El Camino del Pelabola]
-             (Ingresar al gran mapa con reputación y título único)
+                   [CAPÍTULO 1: Viviendo la Vida Dura]
+             (Ver borrador en /docs/CAPITULO_1_VIVIENDO_LA_VIDA_DURA.md)
 ```
 
 #### **Desglose del Prólogo y Epílogo (Escenas Interactivas):**
@@ -80,6 +80,8 @@ Inicias en *"La Jarra Mellada"*. Sostienes una bayeta sucia mientras escuchas a 
   - Combatir contra los matones del recaudador con cálculo de daño en tiempo real vía motor nativo C++/Rust.
 - **Escena 0.3 - La Encrucijada del Epílogo (Múltiples Finales):**
   - Escribir tu destino a través de 4 vertientes principales (Guardián, Mercenario, Proscrito o Agente de las Sombras). Ver detalles completos en [`/docs/EPILOGO.md`](./EPILOGO.md).
+- **Escena 1.1 a 1.2 - Capítulo 1: Viviendo la Vida Dura:**
+  - Enfrentar la crudeza de la supervivencia 7 días después, el distanciamiento con tu padre Garrick y la llegada de los cazarrecompensas (Capitán Valerius, Kaelen y Dara) buscando al ladrón Vance "Mano de Humo". Ver borrador en [`/docs/CAPITULO_1_VIVIENDO_LA_VIDA_DURA.md`](./CAPITULO_1_VIVIENDO_LA_VIDA_DURA.md).
 
 ---
 
@@ -87,4 +89,3 @@ Inicias en *"La Jarra Mellada"*. Sostienes una bayeta sucia mientras escuchas a 
 1. **Sistema de Lógica Nativa (C++ & Rust):** Procesamiento de combate y grafos de decisión a través de JNI (`NativeEngineBridge`).
 2. **Sistema de Inventario Humilde:** Comenzar con objetos realistas ("Bayeta de Taberna", "Espada Mella", "Raciones Rancias").
 3. **Misiones de Reputación y Títulos:** Ganar estatus desde "Pelabola Desconocido" hasta "Capitán de Milicia" o "Señor de las Sombras".
-

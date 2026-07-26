@@ -50,18 +50,39 @@ Este documento registra los personajes, personalidades, trasfondos y relaciones 
 
 ---
 
-### 🧪 5. VESPERA LA ALQUIMISTA (NPC Futuro - Capítulo 1)
-- **Rol:** Erudita furtiva de los brebajes prohibidos y elixires del *Miasma*.
-- **Personalidad:**
-  Analítica, misteriosa, desconfiada y pragmática. No cree en causas nobles ni banderas feudales; solo cree en la ciencia alquímica y la supervivencia.
-- **Función Jugable:**
-  Vendedora de elixires especiales y fuente de misiones secundarias sobre pociones en el Capítulo 1.
+### 🛡️ 5. CAPITÁN VALERIUS "EL SABUESO" (Cazarrecompensas - Capítulo 1)
+- **Rol:** Líder de la patrulla de la Compañía del Perro Hambriento.
+- **Apariencia:** Hombre de 42 años con cota de malla desgastada sobre cuero endurecido, barba de varios días y una cicatriz transversal en la mejilla izquierda.
+- **Personalidad:** Pragmático, frío, perspicaz y profesional. No busca matanzas innecesarias ni le interesan los dramas de los aldeanos, pero no tolera mentiras ni vacilaciones cuando hay 40 monedas de plata en juego.
 
 ---
 
-### 🛡️ 6. CAPITÁN ALDOUS "EL TUERTO" (NPC Futuro - Capítulo 1)
+### 🏹 6. KAELEN "DEDOS FRÍOS" Y DARA "LA TUERTA" (Miembros de la Compañía)
+- **Kaelen:** Ballestero de 28 años, delgado y taciturno. Mantiene siempre la manivela de su ballesta ajustada y observa en silencio cada movimiento del interlocutor.
+- **Dara:** Rastreadora de 35 años con un parche y ropas raídas. Sostiene la cadena de *'Muerdecapas'*, un feroz perro de caza adiestrado para rastrear sangre y metal.
+
+---
+
+### 🗡️ 7. VANCE "MANO DE HUMO" (El Ladrón y Antiguo Amigo - Capítulo 1)
+- **Rol:** Ladrón prófugo, ex-aprendiz de herrero en la forja de Olaf y figura clave del Capítulo 1.
+- **Apariencia:** Joven de 22 años, ágil, de manos tiznadas de hollín y mirada inquieta.
+- **Relación Prioritaria con el Protagonista:**
+  - **Se conocen de antes:** Vance no es un extraño cualquiera. Era el aprendiz de la forja de Olaf y pasaba las noches en *'La Jarra Mellada'* tras sus extenuantes jornadas en el yunque. Compartió muchas cervezas con el protagonista en la barra; ambos compartían el mismo anhelo de huir del yugo de Oakhaven.
+  - Mientras el protagonista eligió el camino del acero y la confrontación directa, Vance eligió el camino del sigilo, la cerrajería y el robo.
+- **El Delito:** Robó una espada corta de acero de alta calidad en la forja y un estuche con joyas del intendente del feudo.
+- **Dinámica Narrativa:**
+  - Su amistad previa hace que la opción de negociar sea sumamente personal y rica en matices: puedes proteger a tu viejo amigo, exigirle parte del botín a cambio de tu silencio, convencerlo de devolver las joyas reteniendo la espada, o entregarlo a los cazarrecompensas por la recompensa en efectivo.
+
+---
+
+### 🧪 8. VESPERA LA ALQUIMISTA (NPC Futuro)
+- **Rol:** Erudita furtiva de los brebajes prohibidos y elixires del *Miasma*.
+- **Personalidad:** Analítica, misteriosa, desconfiada y pragmática. No cree en causas nobles ni banderas feudales; solo cree en la ciencia alquímica y la supervivencia.
+- **Función Jugable:** Vendedora de elixires especiales y fuente de misiones secundarias sobre pociones en capítulos posteriores.
+
+---
+
+### 🛡️ 9. CAPITÁN ALDOUS "EL TUERTO" (NPC Futuro)
 - **Rol:** Veterano caído en desgracia de la extinta Guardia Real.
-- **Personalidad:**
-  Duro, nostálgico, guiado por un código de honor roto pero inquebrantable.
-- **Función Jugable:**
-  Ofrece misiones de reputación militar y entrenamiento avanzado de esgrima en los capítulos siguientes.
+- **Personalidad:** Duro, nostálgico, guiado por un código de honor roto pero inquebrantable.
+- **Función Jugable:** Ofrece misiones de reputación militar y entrenamiento avanzado de esgrima.

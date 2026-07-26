@@ -13,17 +13,19 @@
 
 ---
 
-### 🟡 FASE 2: Capítulo 1 - "El Camino del Pelabola" (EN PROCESO)
-- [ ] Creación de las escenas del Capítulo 1 tras dejar la aldea de Oakhaven.
-- [ ] Encuentro con el campamento de mercenarios en la frontera.
-- [ ] Sistema de misiones secundarias de poca monta (caza de alimañas, escolta de carros de ale).
-- [ ] Primera tienda de equipo para comprar una Espada de Hierro real.
+### 🟡 FASE 2: Capítulo 1 - "Viviendo la Vida Dura" (EN PROCESO)
+- [x] Diseño del borrador narrativo completo del **Capítulo 1: "Viviendo la Vida Dura"** (`/docs/CAPITULO_1_VIVIENDO_LA_VIDA_DURA.md`).
+- [x] Definición del conflicto inicial 7 días después: la frialdad de Garrick y el entrenamiento callejero.
+- [x] Introducción de los Cazarrecompensas (**Capitán Valerius "El Sabueso"**, **Kaelen "Dedos Fríos"** y **Dara "La Tuerta"**).
+- [x] Definición de la presa: **Vance "Mano de Humo"** y la espada de acero robada.
+- [ ] Implementación interactiva de las escenas del Capítulo 1 en `StoryEngine.kt`.
+- [ ] Primera oportunidad de obtener una Espada Corta de Acero real o cobrar 40 monedas de plata.
 
 ---
 
-### 🔵 FASE 3: Sistema de Combate Tactico e Inventario Avanzado
+### 🔵 FASE 3: Sistema de Combate Táctico e Inventario Avanzado
 - [ ] Pantalla dedicada de Inventario con equipamiento visual (Arma, Armadura, Accesorio).
-- [ ] Sistema de combate por turnos con habilidades especiales del Guerrero (*Embida Voraz*, *Postura Defensiva*).
+- [ ] Sistema de combate por turnos con habilidades especiales del Guerrero (*Embestida Voraz*, *Postura Defensiva*).
 - [ ] Sistema de Tiradas de Dados / Chequeos de Habilidad (Fuerza, Astucia, Carisma).
 
 ---
