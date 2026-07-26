@@ -41,7 +41,9 @@ Inicias en *"La Jarra Mellada"*. Sostienes una bayeta sucia mientras escuchas a 
 
 ---
 
-### 🗺️ 4. Estructura de Capítulos Propuesta (Arco del Guerrero)
+### 🗺️ 4. Estructura de Capítulos y Epílogo Ramificado (Arco del Guerrero)
+
+*(Para ver la documentación completa y detallada del árbol de decisiones del epílogo, consulta directamente el archivo [`/docs/EPILOGO.md`](./EPILOGO.md))*
 
 ```
                      [PRÓLOGO: Cerveza, Sangre y Barro]
@@ -55,28 +57,34 @@ Inicias en *"La Jarra Mellada"*. Sostienes una bayeta sucia mientras escuchas a 
              │                                             │
              └──────────────────────┬──────────────────────┘
                                     ▼
-                     [EPÍLOGO DEL PRÓLOGO: La Partida]
-                 (Dejar la aldea con lo puesto y rumbo al camino)
+               [EPÍLOGO RAMIFICADO: La Encrucijada de Oakhaven]
+                    (Ver detalles en /docs/EPILOGO.md)
                                     │
+    ┌───────────────────┬───────────┴───────────┬───────────────────┐
+    ▼                   ▼                       ▼                   ▼
+[RAMA I: GUARDIÁN]  [RAMA II: MERCENARIO]    [RAMA III: PROSCRITO]   [RAMA IV: SOMBRAS]
+ (Defensa Local)     (Lobos de Hierro)        (Bosque de Brumas)      (Contrabando)
+    │                   │                       │                   │
+    └───────────────────┴───────────┬───────────┴───────────────────┘
                                     ▼
-                    [CAPÍTULO 1: El Camino del Pelabola]
-             (Aceptar trabajos de poca monta en el campamento de mercenarios)
+                   [CAPÍTULO 1: El Camino del Pelabola]
+             (Ingresar al gran mapa con reputación y título único)
 ```
 
-#### **Desglose del Prólogo (Escenas Interactivas):**
+#### **Desglose del Prólogo y Epílogo (Escenas Interactivas):**
 - **Escena 0.1 - La Discusión en el Mostrador:**
   - *Opción 1:* Intervenir pacíficamente y pagar las últimas monedas ahorradas de la taberna.
-  - *Opción 2:* Sostener el cuchillo de trinchar y encarar a Brutus.
+  - *Opción 2:* Sostener la espada de madera oxidada y encarar a Brutus.
   - *Opción 3:* Pedir ayuda en voz baja a Gideon, el veterano borracho.
 - **Escena 0.2 - El Enfrentamiento Inicial:**
-  - Aprender el sistema de combate básico con equipo de novato (daño bajo, alta tensión).
-- **Escena 0.3 - La Despedida de Oakhaven:**
-  - Tu padre comprende que no naciste para limpiar jarras. Te entrega el zurrón de viaje y emprendes tu camino hacia la capital con cero renombre y mucho por demostrar.
+  - Combatir contra los matones del recaudador con cálculo de daño en tiempo real vía motor nativo C++/Rust.
+- **Escena 0.3 - La Encrucijada del Epílogo (Múltiples Finales):**
+  - Escribir tu destino a través de 4 vertientes principales (Guardián, Mercenario, Proscrito o Agente de las Sombras). Ver detalles completos en [`/docs/EPILOGO.md`](./EPILOGO.md).
 
 ---
 
 ### 🛠️ 5. Próximas Mejoras del Juego
-1. **Actualización del `StoryEngine.kt`:** Adaptar todo el Prólogo jugable a esta nueva historia del Guerrero novato.
+1. **Sistema de Lógica Nativa (C++ & Rust):** Procesamiento de combate y grafos de decisión a través de JNI (`NativeEngineBridge`).
 2. **Sistema de Inventario Humilde:** Comenzar con objetos realistas ("Bayeta de Taberna", "Espada Mella", "Raciones Rancias").
-3. **Misiones de Reputación:** Ganar estatus desde "Pelabola Desconocido" hasta "Escudero de la Comarca".
+3. **Misiones de Reputación y Títulos:** Ganar estatus desde "Pelabola Desconocido" hasta "Capitán de Milicia" o "Señor de las Sombras".
 

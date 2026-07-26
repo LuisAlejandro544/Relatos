@@ -2,10 +2,12 @@
 
 ---
 
-### 🟢 FASE 1: Prólogo Jugable (COMPLETADO)
+### 🟢 FASE 1: Prólogo Jugable y Epílogo Ramificado (COMPLETADO)
 - [x] Definición del concepto medieval sombrío y tono realista.
 - [x] Arco inicial del Guerrero Novato (20 años, pelabola de taberna).
 - [x] Implementación del Prólogo *"Cerveza, Sangre y Barro"* en `StoryEngine.kt`.
+- [x] Expansión del **Epílogo Ramificado ("La Encrucijada de Oakhaven")** con 4 caminos principales y 8 sub-destinos (`/docs/EPILOGO.md`).
+- [x] Integración de la arquitectura híbrida nativa `C++` & `Rust` vía `NativeEngineBridge.kt` para cálculo determinista de combate y ramificaciones.
 - [x] Integración de NPCs principales: Garrick, Gideon y Brutus.
 - [x] UI temática en Jetpack Compose con indicadores de HP, Oro, Nivel y Mochila.
 

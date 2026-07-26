@@ -1,0 +1,13 @@
+[package]
+name = "aethelgard_rust_core"
+version = "0.1.0"
+edition = "2021"
+authors = ["Aethelgard RPG Team"]
+description = "Motor determinista de lógica e inmutabilidad de estado en Rust para Aethelgard RPG"
+
+[lib]
+crate-type = ["cdylib", "staticlib"]
+
+[dependencies]
+jni = "0.21.1"
+rand = "0.8.5"

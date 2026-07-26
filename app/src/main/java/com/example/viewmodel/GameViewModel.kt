@@ -1,6 +1,7 @@
 package com.example.viewmodel
 
 import androidx.lifecycle.ViewModel
+import com.example.engine.NativeEngineBridge
 import com.example.engine.StoryEngine
 import com.example.model.CharacterClass
 import com.example.model.GameState
@@ -65,8 +66,18 @@ class GameViewModel : ViewModel() {
             return
         }
 
-        // Apply health change
-        var newHp = (currentState.currentHp + choice.hpChange).coerceIn(0, currentState.maxHp)
+        // Apply health change through Native Engine calculation if damage occurs
+        val hpDelta = if (choice.hpChange < 0) {
+            -NativeEngineBridge.calculateCombatDamage(
+                baseDamage = kotlin.math.abs(choice.hpChange),
+                defense = 0,
+                seed = System.currentTimeMillis()
+            )
+        } else {
+            choice.hpChange
+        }
+
+        var newHp = (currentState.currentHp + hpDelta).coerceIn(0, currentState.maxHp)
         var newGold = (currentState.gold + choice.goldReward).coerceAtLeast(0)
         var newExp = currentState.experience + choice.expReward
         var newLevel = currentState.level
@@ -95,8 +106,21 @@ class GameViewModel : ViewModel() {
             }
         }
 
-        // Get target scene
-        val nextScene = StoryEngine.getScene(choice.targetSceneId)
+        // Evaluate target scene (via NativeEngineBridge branch routing)
+        val targetSceneIdToUse = NativeEngineBridge.evaluateEpilogueBranch(
+            currentSceneId = currentState.currentSceneId,
+            choiceId = choice.id,
+            gold = newGold,
+            heroLevel = newLevel
+        ).ifBlank { choice.targetSceneId }
+
+        val resolvedSceneId = if (targetSceneIdToUse != choice.targetSceneId && targetSceneIdToUse != "SCENE_VICTORY_DEMO") {
+            targetSceneIdToUse
+        } else {
+            choice.targetSceneId
+        }
+
+        val nextScene = StoryEngine.getScene(resolvedSceneId)
         val formattedNarrative = StoryEngine.formatNarrative(
             nextScene.narrativeTemplate,
             currentState.heroName,
@@ -123,17 +147,18 @@ class GameViewModel : ViewModel() {
     }
 
     fun resetGame() {
+        val defaultClass = CharacterClass.GUERRERO
         _uiState.update {
             GameState(
                 heroName = "",
-                characterClass = CharacterClass.GUERRERO,
+                characterClass = defaultClass,
                 isGameStarted = false,
-                currentHp = 120,
-                maxHp = 120,
-                gold = 15,
+                currentHp = defaultClass.baseHp,
+                maxHp = defaultClass.baseHp,
+                gold = 5,
                 experience = 0,
                 level = 1,
-                inventory = listOf("Espada de Hierro", "Coraza de Placas", "Raciones de Viaje"),
+                inventory = listOf(defaultClass.weaponName, defaultClass.armorName, "Raciones de Viaje"),
                 currentSceneId = "SCENE_TAVERN_INTRO",
                 storyLog = emptyList()
             )

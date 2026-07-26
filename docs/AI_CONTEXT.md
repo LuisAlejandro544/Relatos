@@ -8,7 +8,7 @@ Este archivo sirva como instrucción guía para cualquier modelo de Inteligencia
 - **Temática:** Juego de rol medieval sombrío (*Dark Fantasy / Grounded Fantasy*).
 - **Enfoque del Protagonista:** El Guerrero no es un príncipe ni un elegido profético; es un joven de 20 años que trabajó toda su vida en una taberna y empieza desde la absoluta miseria ("pelabola").
 - **Tono Narrativo:** Maduro, humano, con toques de humor realista en los diálogos pero sin caer en parodia.
-- **Consultar siempre:** Antes de escribir código narrativo o nuevos personajes, revisa `/docs/BIBLIA_PERSONAJES.md` y `/docs/HISTORIA_Y_CAPITULOS.md`.
+- **Consultar siempre:** Antes de escribir código narrativo o nuevos personajes, revisa `/docs/BIBLIA_PERSONAJES.md`, `/docs/EPILOGO.md` y `/docs/HISTORIA_Y_CAPITULOS.md`.
 
 ---
 
@@ -16,8 +16,10 @@ Este archivo sirva como instrucción guía para cualquier modelo de Inteligencia
 - **`com.example.model.GameModel`**:
   - `CharacterClass`: Enum con las clases y su equipamiento base.
   - `GameState`: Data class inmutable que guarda el estado de la partida (`currentHp`, `gold`, `currentSceneId`, `inventory`).
+- **`com.example.engine.NativeEngineBridge`**:
+  - Puente JNI para la capa de lógica nativa C++ & Rust (cálculo determinista de combate, tiradas de dados, semillas RNG y ramificación de epílogos).
 - **`com.example.engine.StoryEngine`**:
-  - Contiene el mapa de escenas `StoryScene` y elecciones `StoryChoice`.
+  - Contiene el mapa de escenas `StoryScene` y elecciones `StoryChoice` (Prólogo y Epílogo Ramificado).
   - Reemplaza marcadores dinámicos como `{HERO_NAME}`, `{WEAPON}`, `{CLASS}` y `{ARMOR}`.
 - **`com.example.viewmodel.GameViewModel`**:
   - Expone `StateFlow<GameState>` para la UI en Compose.

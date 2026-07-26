@@ -36,6 +36,7 @@
 │       └── viewmodel/      # ViewModel de Compose (GameViewModel.kt)
 ├── docs/
 │   ├── BIBLIA_PERSONAJES.md  # Registro detallado de personajes y lore
+│   ├── ESTRUCTURA.md         # Mapa completo de carpetas y arquitectura de código
 │   ├── HISTORIA_Y_CAPITULOS.md# Planificación de actos y capítulos
 │   ├── ROADMAP.md            # Hoja de ruta de desarrollo
 │   └── AI_CONTEXT.md         # Guía de contexto para asistentes de IA
