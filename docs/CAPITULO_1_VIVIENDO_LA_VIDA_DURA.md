@@ -97,9 +97,13 @@ A tus 20 años, te encuentras sumido en la dura realidad de quien intenta conver
    - *Texto:* 🏹 *(Dar una pista falsa)* "Lo vi marchar hacia el camino del sur..." *(Desvías a los cazarrecompensas para ir tú solo al molino abandondado a buscar a Vance y convencerlo de compartir la espada de acero).*
    - *Consecuencias:* Desvías a la patrulla. Inicias una carrera contra el tiempo hacia el viejo molino para reencontrarte con Vance antes de que lo acorralen.
 
-4. **`choice_cap1_shadow_alliance` (Opción D - Mediador y Negociador):**
+4. **`choice_cap1_shadow_alliance` (Opción D - Mediador y Negociador con Diálogos Interactivos):**
    - *Texto:* 🤝 "Vance no entregará las joyas sin luchar. Déjenme ir al frente; lo conozco bien y puedo hacer que se rinda sin derramar sangre."
-   - *Consecuencias:* Te posicionas como mediador neutral entre la patrulla de Valerius y tu antiguo amigo, abriendo rutas de negociación compleja o escape planeado.
+   - *Consecuencias:* Valerius evalúa tu propuesta con desconfianza. En la escena `SCENE_CAP1_MEDIATOR_PACT`, la patrulla exige condiciones y se abren 4 sub-opciones con diálogos lógicos:
+     - **D.1 Duelo de Prueba (Tutorial de Combate) (`choice_cap1_duel_kaelen`):** ⚔️ *"Si vas a marchar a nuestro lado, primero prueba que sabes sostener esa madera sin orinarte encima."* -> Desafío de combate 1v1 contra Kaelen "Dedos Fríos" o el Capitán Valerius. **Enseña el sistema de combate táctico** (cálculo de HP, tiradas de daño en C++/Rust, estocadas y esquivas) (`SCENE_CAP1_TUTORIAL_COMBAT`).
+     - **D.2 Exigir Reparto Equitativo (`choice_cap1_demand_share`):** 💰 *"Arriesgaré mi piel por mi viejo amigo, pero exijo 15 monedas de plata de la recompensa y derecho a hablar a solas con él."* -> Negociación económica con Valerius (`SCENE_CAP1_MEDIATOR_SHARE`).
+     - **D.3 Infiltración y Doble Juego (`choice_cap1_double_agent`):** 🗝️ *"Me adelantaré dos minutos al molino para asegurar que no queme las joyas del intendente al vernos llegar."* -> Pacto de sombras para planear una vía de escape furtiva para Vance (`SCENE_CAP1_MEDIATOR_DOUBLE_AGENT`).
+     - **D.4 Rechazo de Último Segundo (`choice_cap1_refuse_pact`):** 🛑 *"Pensándolo bien, no voy a arriesgar el cuello por las monedas de un señor feudal."* -> Cancela el trato y regresa a las tensiones de la plaza (`SCENE_CAP1_BOUNTY_HUNTERS`).
 
 ---
 

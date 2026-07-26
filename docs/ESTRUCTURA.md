@@ -8,6 +8,9 @@ Este documento detalla la estructura física de carpetas, la distribución de ar
 
 ```
 /
+├── .github/
+│   └── workflows/
+│       └── android-build.yml            # CI/CD: Compilación de APK Debug y generación de firma en caliente
 ├── .env.example                         # Plantilla de variables de entorno (p. ej. claves de API)
 ├── .gitignore                           # Archivos ignorados por Git
 ├── AGENTS.md                            # Reglas persistentes y convenciones para agentes de IA

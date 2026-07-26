@@ -570,12 +570,73 @@ object StoryEngine {
 
         "SCENE_CAP1_MEDIATOR_PACT" to StoryScene(
             id = "SCENE_CAP1_MEDIATOR_PACT",
-            title = "El Mediador de Oakhaven",
-            narrativeTemplate = "El Capitán Valerius evalúa tu propuesta en silencio durante largos segundos.\n\n—'De acuerdo, **{HERO_NAME}**. Tú irás primero a parlamentar con Vance en el molino. Si nos entrega el acero y las joyas intactas sin derramar sangre de mis hombres, te daré una tajada de las 40 monedas de plata. Pero si nos traicionas, Muerdecapas cenará con tus tripas.'\n\nTe entregan un salvoconducto provisional mientras marchas junto a la patrulla.",
+            title = "El Mediador de Oakhaven - Negociación",
+            narrativeTemplate = "El Capitán Valerius evalúa tu propuesta en silencio durante largos segundos mientras Kaelen y Dara te observan con recelo.\n\n—'Dices que conoces a Vance y que puedes hacer que se rinda sin derramar sangre de mis hombres' —dice Valerius acariciándose la barbilla—. 'Pero en esta compañía no marchamos con cualquiera que hable bonito. Si vas a acompañarnos como mediador, debes dejar claras tus intenciones, **{HERO_NAME}**.'\n\n¿Cómo decides negociar las condiciones con la patrulla?",
             choices = listOf(
                 StoryChoice(
-                    id = "choice_cap1_finish_part1_4",
-                    text = "📜 Continuar la aventura en la siguiente etapa del Capítulo 1",
+                    id = "choice_cap1_duel_kaelen",
+                    text = "⚔️ Duelo de Prueba (Tutorial de Combate): \"No soy solo palabras. Prueben mi brazo si dudan de mí.\" (Luchar contra Kaelen)",
+                    targetSceneId = "SCENE_CAP1_TUTORIAL_COMBAT",
+                    expReward = 50,
+                    itemAdded = "Respeto de Kaelen"
+                ),
+                StoryChoice(
+                    id = "choice_cap1_demand_share",
+                    text = "💰 Exigir Reparto Equitativo: \"Iré al frente, pero exijo 15 monedas de plata de la recompensa y hablar a solas con Vance primero.\"",
+                    targetSceneId = "SCENE_CAP1_MEDIATOR_SHARE",
+                    goldReward = 15,
+                    expReward = 35,
+                    itemAdded = "Contrato de la Compañía"
+                ),
+                StoryChoice(
+                    id = "choice_cap1_double_agent",
+                    text = "🗝️ Infiltración Clandestina: \"Me adelantaré 2 minutos al molino para asegurar que no destruya las joyas al vernos llegar.\"",
+                    targetSceneId = "SCENE_CAP1_MEDIATOR_DOUBLE_AGENT",
+                    expReward = 40,
+                    itemAdded = "Ganzúa Furtiva"
+                ),
+                StoryChoice(
+                    id = "choice_cap1_refuse_pact",
+                    text = "🛑 Arrepentirse del Pacto: \"Pensándolo bien, no voy a arriesgar mi cuello por las monedas de un señor feudal.\"",
+                    targetSceneId = "SCENE_CAP1_BOUNTY_HUNTERS"
+                )
+            )
+        ),
+
+        "SCENE_CAP1_TUTORIAL_COMBAT" to StoryScene(
+            id = "SCENE_CAP1_TUTORIAL_COMBAT",
+            title = "Tutorial de Combate: Duelo de Prueba contra Kaelen",
+            narrativeTemplate = "Valerius asiente con una sonrisa fría. Kaelen deja su ballesta a un lado y desenfunda una daga pesada de duelo.\n\n—'Veamos de qué estás hecho, muchacho' —gruñe Kaelen.\n\n⚔️ **[APRENDIENDO EL SISTEMA DE COMBATE TÁCTICO]**\nEn *Aethelgard RPG*, los combates utilizan un motor determinista en C++ y Rust que calcula cada impacto según tus estadísticas de Fuerza, Agilidad y el estado de tu equipo:\n\n1. **Guardia & Postura:** Usar tu garrote para desviar ataques reduce el daño en un 50% y recarga tu energía de contraataque.\n2. **Puntos de Vida (HP):** Cada golpe recibido descuenta HP directamente de tu estado global. Gestionar tus pociones e inventario es vital.\n3. **Cálculo Nativo (Rust RNG Seed):** La precisión y los golpes críticos dependen de tiradas de destreza no manipulables.\n\n¡Intercambias tres embestidas feroces! Desvías el estacazo de Kaelen con tu garrote de roble y le asestas un fuerte barrido en el tobillo. Kaelen cae de rodillas sobre la tierra dura, respirando agitado. Valerius aplaude lentamente.\n\n—'Suficiente. Tienes madera de guerrero, **{HERO_NAME}**. Bien planificado.'",
+            choices = listOf(
+                StoryChoice(
+                    id = "choice_cap1_finish_tutorial",
+                    text = "📜 Demostración completada: Avanzar en la misión con la patrulla",
+                    targetSceneId = "SCENE_CAP1_SUMMARY_DEMO"
+                )
+            )
+        ),
+
+        "SCENE_CAP1_MEDIATOR_SHARE" to StoryScene(
+            id = "SCENE_CAP1_MEDIATOR_SHARE",
+            title = "Pacto de Sangre y Plata",
+            narrativeTemplate = "Valerius entorna los ojos al escuchar tu demanda económica de 15 monedas de plata.\n\n—'Tienes la boca grande y los bolsillos vacíos, muchacho. Pero si nos entregas a Vance intacto con las joyas del intendente, tendrás tus 15 monedas de plata y derecho a hablar con él primero. Si falla tu negociación, la plata será para pagar tu entierro.'\n\nCierran el pacto estrechando las manos sucias de barro. Has asegurado una paga importante si la misión triunfa.",
+            choices = listOf(
+                StoryChoice(
+                    id = "choice_cap1_finish_share",
+                    text = "📜 Continuar la marcha hacia el molino abandonado",
+                    targetSceneId = "SCENE_CAP1_SUMMARY_DEMO"
+                )
+            )
+        ),
+
+        "SCENE_CAP1_MEDIATOR_DOUBLE_AGENT" to StoryScene(
+            id = "SCENE_CAP1_MEDIATOR_DOUBLE_AGENT",
+            title = "Infiltración Furtiva en el Molino",
+            narrativeTemplate = "Propones correr hacia el molino norte dos minutos antes que la caballería para evitar que Vance se acorrale o destruya el botín.\n\n—'De acuerdo' —consiente Valerius—. 'Tendrás 120 segundos de ventaja antes de que rodeemos la estructura. Si intentas huir con él, Dara soltará a Muerdecapas.'\n\nAvanzas a paso ligero entre las sombras del sotobosque, ganando terreno táctico para reencontrarte con tu viejo amigo Vance antes que nadie.",
+            choices = listOf(
+                StoryChoice(
+                    id = "choice_cap1_finish_double_agent",
+                    text = "📜 Adentrarte en el sotobosque hacia la siguiente etapa del Capítulo 1",
                     targetSceneId = "SCENE_CAP1_SUMMARY_DEMO"
                 )
             )
