@@ -93,9 +93,19 @@ A tus 20 años, te encuentras sumido en la dura realidad de quien intenta conver
      - **B.3 Clamor Popular (`choice_cap1_call_villagers`):** 🗣️ *"¡Gente de Oakhaven, miren cómo estos mercenarios amenazan a un muchacho del pueblo!"* -> Dos parroquianos de la taberna vuelcan un carro de barriles, obstruyendo la ballesta de Kaelen. Deriva en **Trifulca de Callejón con Ayuda Local** (`SCENE_CAP1_FIGHT_ALLEY_BRAWL`).
      - **B.4 Reintento Táctico a Regañadientes (`choice_cap1_grudge_retreat`):** ⚖️ *"Tranquilos... si tanto les pican las manos, busquen en el molino norte antes de que pierda la paciencia."* -> Desescalada de último segundo sin combate inmediato pero con la patrulla jurando venganza (`SCENE_CAP1_STUBBORN_GRUDGE`).
 
-3. **`choice_cap1_trick_and_hunt` (Opción C - Pista Falsa y Búsqueda Personal):**
-   - *Texto:* 🏹 *(Dar una pista falsa)* "Lo vi marchar hacia el camino del sur..." *(Desvías a los cazarrecompensas para ir tú solo al molino abandondado a buscar a Vance y convencerlo de compartir la espada de acero).*
-   - *Consecuencias:* Desvías a la patrulla. Inicias una carrera contra el tiempo hacia el viejo molino para reencontrarte con Vance antes de que lo acorralen.
+3. **`choice_cap1_trick_and_hunt` (Opción C - Pista Falsa y Caza en Solitario en el Molino):**
+   - *Texto:* 🏹 *(Dar una pista falsa)* "Lo vi marchar hacia el camino del sur..." *(Desvías a los cazarrecompensas para ir tú solo al viejo molino abandonado al norte).*
+   - *Consecuencias:* Engañas a Valerius y corres solo hacia el Viejo Molino. Se abre la escena `SCENE_CAP1_SOLO_HUNT` con 3 tácticas de aproximación y múltiples diálogos lógicos con Vance:
+     - **C.1 Aproximación Abierta (`choice_cap1_solo_call_vance`):** 🗣️ *"¡Vance, soy yo, {HERO_NAME}! ¡No dispares, viejo borracho!"* -> Encuentro amistoso directo (`SCENE_CAP1_SOLO_VANCE_MEETING`).
+     - **C.2 Infiltración Sigilosa (`choice_cap1_solo_sneak_wheel`):** 🥷 Colarse por la rueda podrida del molino -> Sorprender a Vance por la espalda en posición de ventaja (`SCENE_CAP1_SOLO_SNEAK_MILL`).
+     - **C.3 Reconocimiento del Terreno (`choice_cap1_solo_scout`):** 🔍 Reconocer el perímetro -> Evitar una trampa para osos colocada en la entrada (`SCENE_CAP1_SOLO_SCOUT_MILL`).
+
+   - *Resoluciones Narrativas y Diálogos con Vance:*
+     - **Alianza y Dúo Proscrito (`choice_cap1_solo_partner`):** 🤝 *"Huyamos juntos al norte. Tú tienes el acero y yo conozco los atajos. Nos repartiremos el botín."* -> **Recompensa:** +20 Plata, +60 EXP, Dagas de Lanzamiento de Vance, Objeto "Pacto de Sangre con Vance" (`SCENE_CAP1_SOLO_PARTNER_ESCAPE`).
+     - **Redención y Devolución de Joyas (`choice_cap1_solo_convince_jewels`):** 📜 *"Escúchame, Vance. Si devuelves las joyas del intendente, retirarán la orden de ejecución."* -> **Recompensa:** +15 Plata, +70 EXP, Objeto "Joyero del Intendente" para entrega anónima (`SCENE_CAP1_SOLO_REDEEM_VANCE`).
+     - **Duelo de Acero por la Espada (`choice_cap1_solo_demand_sword`):** ⚔️ *"Esa espada es del viejo Olaf. Entrégame el acero o lo tomaré por la fuerza."* -> Duelo no mortal contra Vance. **Recompensa:** +80 EXP, Arma "Espada Corta de Acero de Olaf" (`SCENE_CAP1_SOLO_DUEL_VANCE`).
+     - **Trampa Explosiva de Harina (`choice_cap1_solo_ambush`):** 🏹 *"Preparemos una trampa con sacos de harina y la rueda de agua para cuando Valerius regrese."* -> Deflagración e incendio del molino al paso de la patrulla. **Recompensa:** +30 Plata, +100 EXP, Objeto "Capa Calcinada de Valerius" (`SCENE_CAP1_SOLO_MILL_TRAP`).
+     - **Desarme y Recuperación del Botín (`choice_cap1_solo_steal_jewels`):** 🗝️ Inmovilizar a Vance y huir por el canal del río con las joyas del intendente -> **Recompensa:** +40 Plata, +65 EXP, Objeto "Joyero del Intendente Robado" (`SCENE_CAP1_SOLO_STEAL_JEWELS`).
 
 4. **`choice_cap1_shadow_alliance` (Opción D - Mediador y Negociador con Diálogos Interactivos):**
    - *Texto:* 🤝 "Vance no entregará las joyas sin luchar. Déjenme ir al frente; lo conozco bien y puedo hacer que se rinda sin derramar sangre."

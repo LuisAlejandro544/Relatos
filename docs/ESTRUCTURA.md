@@ -46,11 +46,26 @@ Este documento detalla la estructura física de carpetas, la distribución de ar
         │   │   ├── MainActivity.kt      # Punto de entrada de la app en Kotlin (SetContent)
         │   │   ├── engine/
         │   │   │   ├── NativeEngineBridge.kt # Puente JNI para motor de lógica nativa C++ & Rust
-        │   │   │   └── StoryEngine.kt   # Motor de historia, banco de escenas y elecciones
-        │   │   ├── model/
-        │   │   │   └── GameModel.kt     # Modelos de datos (GameState, CharacterClass, LogEntry, etc.)
+        │   │   │   ├── StoryEngine.kt   # Motor principal de narrativa y orquestación de escenas
+        │   │   │   └── scenes/          # Módulos de contenido narrativo por arcos/capítulos
+        │   │   │       ├── PrologueScenes.kt # Escenas del Prólogo ("Cerveza, Sangre y Barro")
+        │   │   │       ├── EpilogueScenes.kt # Escenas del Epílogo ramificado (4 caminos)
+        │   │   │       └── Chapter1Scenes.kt # Escenas del Capítulo 1 ("Viviendo la Vida Dura")
+        │   │   ├── model/               # Modelos de datos modularizados
+        │   │   │   ├── CharacterClass.kt # Enum con clases de personajes y estadísticas base
+        │   │   │   ├── StoryChoice.kt   # Data class para opciones y recompensas
+        │   │   │   ├── StoryScene.kt    # Data class para escenas y plantillas narrativas
+        │   │   │   ├── LogEntry.kt      # Data class para el diario de campaña
+        │   │   │   └── GameState.kt     # Data class del estado global inmutable del jugador
         │   │   ├── ui/
-        │   │   │   ├── GameScreen.kt    # Vistas en Jetpack Compose (Creación, Historia, HUD, Inventario)
+        │   │   │   ├── GameScreen.kt    # Contenedor principal de la interfaz y Scaffold
+        │   │   │   ├── components/      # Componentes modulares de Compose UI
+        │   │   │   │   ├── CharacterCreationView.kt # Pantalla de creación y selección de héroe
+        │   │   │   │   ├── MainGameStoryView.kt     # Lectura del diario, pergamino y decisiones
+        │   │   │   │   ├── HeroStatsHeader.kt       # Barra superior de HUD (HP, Oro, Clase, Nivel)
+        │   │   │   │   ├── StoryLogCard.kt          # Tarjetas narrativas e historial
+        │   │   │   │   ├── ChoiceButton.kt          # Botones interactivos de toma de decisiones
+        │   │   │   │   └── InventoryDialog.kt       # Diálogo modal de mochila e inventario
         │   │   │   └── theme/
         │   │   │       ├── Color.kt     # Paleta de colores medieval (Oro, Pergamino, Carmesí)
         │   │   │       ├── Theme.kt     # Tema M3 personalizado para el juego
@@ -66,37 +81,39 @@ Este documento detalla la estructura física de carpetas, la distribución de ar
 
 ---
 
-## 🏛️ Responsabilidad de Capas (Arquitectura MVVM)
+## 🏛️ Responsabilidad de Capas (Arquitectura MVVM Modular)
 
 ```
-┌────────────────────────────────────────────────────────┐
-│                   CAPA DE PRESENTACIÓN                 │
-│  MainActivity.kt  ───>  GameScreen.kt (Composables)    │
-└───────────────────────────┬────────────────────────────┘
-                            │ (Observa StateFlow)
-                            ▼
-┌────────────────────────────────────────────────────────┐
-│                    CAPA DE NEGOCIO                     │
-│                  GameViewModel.kt                      │
-└───────────────────────────┬────────────────────────────┘
-                            │ (Aplica elecciones & estado)
-                            ▼
-┌────────────────────────────────────────────────────────┐
-│                    CAPA DE DATOS                       │
-│    GameModel.kt (Data Classes)  +  StoryEngine.kt      │
-└────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────────────────────┐
+│                             CAPA DE PRESENTACIÓN                                 │
+│ MainActivity.kt ─> GameScreen.kt ─> ui/components/* (Componentes Reutilizables) │
+└────────────────────────────────────────┬─────────────────────────────────────────┘
+                                         │ (Observa StateFlow)
+                                         ▼
+┌──────────────────────────────────────────────────────────────────────────────────┐
+│                              CAPA DE NEGOCIO                                     │
+│                            GameViewModel.kt                                      │
+└────────────────────────────────────────┬─────────────────────────────────────────┘
+                                         │ (Aplica elecciones & estado)
+                                         ▼
+┌──────────────────────────────────────────────────────────────────────────────────┐
+│                               CAPA DE DATOS                                      │
+│   com.example.model/* (Classes) + StoryEngine.kt (Orquestador) + engine/scenes/*  │
+└──────────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### 1. **Capa de Datos (`com.example.model` & `com.example.engine`)**
-- **`GameModel.kt`**:
-  - `CharacterClass`: Enum con clases, HP base, arma y armadura inicial.
-  - `StoryChoice`: Representa una decisión con recompensas, cambios de HP u objetos.
-  - `StoryScene`: Escena con plantilla narrativa y opciones.
-  - `LogEntry`: Registro histórico para el diario de campaña.
-  - `GameState`: Estado inmutable global del jugador.
-- **`StoryEngine.kt`**:
-  - Almacena el árbol de escenas del Prólogo y capítulos futuros.
-  - Sustituye variables dinámicas (`{HERO_NAME}`, `{WEAPON}`, `{CLASS}`, `{ARMOR}`) en el texto.
+### 1. **Capa de Datos Modularizada (`com.example.model` & `com.example.engine`)**
+- **`com.example.model`**:
+  - `CharacterClass.kt`: Enum con clases, HP base, arma y armadura inicial.
+  - `StoryChoice.kt`: Representa una decisión con recompensas, cambios de HP u objetos.
+  - `StoryScene.kt`: Escena con plantilla narrativa y opciones.
+  - `LogEntry.kt`: Registro histórico para el diario de campaña.
+  - `GameState.kt`: Estado inmutable global del jugador.
+- **`com.example.engine` & `com.example.engine.scenes`**:
+  - `StoryEngine.kt`: Orquestador principal de narrativa que combina módulos de escenas y sustituye variables dinámicas (`{HERO_NAME}`, `{WEAPON}`, `{CLASS}`, `{ARMOR}`).
+  - `PrologueScenes.kt`: Contiene el banco completo de escenas del Prólogo en la taberna.
+  - `EpilogueScenes.kt`: Contiene la encrucijada y los 4 caminos del Epílogo ramificado.
+  - `Chapter1Scenes.kt`: Contiene la trama completa del Capítulo 1 con los cazarrecompensas.
 
 ### 2. **Capa de Dominio/ViewModel (`com.example.viewmodel`)**
 - **`GameViewModel.kt`**:
@@ -104,12 +121,15 @@ Este documento detalla la estructura física de carpetas, la distribución de ar
   - Procesa la creación de personaje y las decisiones elegidas por el usuario.
   - Calcula cambios de Vida (HP), Oro, Experiencia (EXP), subidas de Nivel y adición de objetos al inventario.
 
-### 3. **Capa de Interfaz de Usuario (`com.example.ui`)**
-- **`GameScreen.kt`**:
-  - `CharacterCreationView`: Pantalla para seleccionar el nombre y la clase del héroe.
-  - `MainGameStoryView`: Vista de lectura del pergamino, diario histórico y botones de opciones.
-  - `HeroStatsHeader`: Barra superior con el nivel, HP, oro e inventario.
-  - `InventoryDialog`: Diálogo flotante con las posesiones del jugador.
+### 3. **Capa de Interfaz de Usuario Modularizada (`com.example.ui`)**
+- **`GameScreen.kt`**: Contenedor Scaffold de alto nivel con TopBar y diálogo de inventario.
+- **`com.example.ui.components`**:
+  - `CharacterCreationView.kt`: Vista dedicada a la selección de nombre y clase del héroe.
+  - `MainGameStoryView.kt`: Vista de lectura del pergamino, diario histórico y opciones activas.
+  - `HeroStatsHeader.kt`: Barra superior HUD con nivel, HP, oro e inventario.
+  - `StoryLogCard.kt`: Tarjetas de narrativa e historial de decisiones.
+  - `ChoiceButton.kt`: Botones de acción estilizados con M3.
+  - `InventoryDialog.kt`: Diálogo flotante modal con el contenido de la mochila del personaje.
 - **`Theme.kt` & `Color.kt`**:
   - Define la paleta medieval de Material Design 3.
 
@@ -123,5 +143,3 @@ Este documento detalla la estructura física de carpetas, la distribución de ar
   - Cálculo de simulaciones de combate, fórmulas de daño y mitigación en tiempo real vía JNI.
 - **`NativeEngineBridge.kt`**:
   - Puente JNI en Kotlin que conecta las llamadas de la capa de dominio/ViewModel con los métodos nativos exportados por Rust/C++.
-- **`Kotlin & Compose UI`**:
-  - Se benefician del ecosistema Android nativo: reactividad con `StateFlow`, diseño adaptable M3, gestión de ciclo de vida del `ViewModel` y soporte fluido para animaciones de interfaz.
