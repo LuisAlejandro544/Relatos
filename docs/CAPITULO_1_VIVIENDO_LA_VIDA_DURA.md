@@ -85,9 +85,13 @@ A tus 20 años, te encuentras sumido en la dura realidad de quien intenta conver
    - *Texto:* 🪙 "Sé exactamente dónde se esconde Vance. Solíamos beber juntos en la taberna... les diré dónde está por 5 monedas de plata."
    - *Consecuencias:* +5 Monedas de Plata. Valerius evalúa tu astucia fría. Cobras dinero pero sientes el peso moral de vender a un compañero de juventud.
 
-2. **`choice_cap1_stubborn_refuse` (Opción B - Silencio y Lealtad de Sangre):**
-   - *Texto:* 🛡️ "Conozco a Vance desde niños y no voy a vendérselo a unos cazarrecompensas forasteros. Busquen por su cuenta."
-   - *Consecuencias:* Valerius se acerca amenazadoramente y Kaelen tensa la ballesta. Ganas +15 EXP por entereza moral y reputación entre los lugareños que observan desde las ventanas.
+2. **`choice_cap1_stubborn_refuse` (Opción B - Desafío Defensivo con Insulto Inventado):**
+   - *Texto:* 🛡️ "Atrás, comadrejas de camino. Vance comió en la misma mesa que yo y no voy a ser el perro faldero de unos tragabarros del feudo. Apártense o les haré tragar sus propios virotes."
+   - *Consecuencias:* Provoca a la patrulla. Valerius desmonta furioso, Kaelen apunta la ballesta a tu pecho y el perro Muerdecapas enseña los colmillos en la escena `SCENE_CAP1_STUBBORN_STAND`. Se desata una escalada de tensión con 4 sub-opciones inmediatas:
+     - **B.1 Embestida Temprana (`choice_cap1_attack_valerius`):** 🗡️ *"¡El único que aprenderá modales eres tú!"* -> Asestas un golpe sorpresa con tu garrote de roble a Valerius. Deriva en **Combate Directo con la Patrulla** (`SCENE_CAP1_FIGHT_VALERIUS`).
+     - **B.2 Provocar al Sabueso (`choice_cap1_taunt_dog`):** 🐕 *(Lanzar una piedra al perro Muerdecapas)* -> El perro enloquece y Dara pierde el control de la correa. Deriva en **Lucha Caótica en la Plaza** (`SCENE_CAP1_FIGHT_DOG_CHAOS`).
+     - **B.3 Clamor Popular (`choice_cap1_call_villagers`):** 🗣️ *"¡Gente de Oakhaven, miren cómo estos mercenarios amenazan a un muchacho del pueblo!"* -> Dos parroquianos de la taberna vuelcan un carro de barriles, obstruyendo la ballesta de Kaelen. Deriva en **Trifulca de Callejón con Ayuda Local** (`SCENE_CAP1_FIGHT_ALLEY_BRAWL`).
+     - **B.4 Reintento Táctico a Regañadientes (`choice_cap1_grudge_retreat`):** ⚖️ *"Tranquilos... si tanto les pican las manos, busquen en el molino norte antes de que pierda la paciencia."* -> Desescalada de último segundo sin combate inmediato pero con la patrulla jurando venganza (`SCENE_CAP1_STUBBORN_GRUDGE`).
 
 3. **`choice_cap1_trick_and_hunt` (Opción C - Pista Falsa y Búsqueda Personal):**
    - *Texto:* 🏹 *(Dar una pista falsa)* "Lo vi marchar hacia el camino del sur..." *(Desvías a los cazarrecompensas para ir tú solo al molino abandondado a buscar a Vance y convencerlo de compartir la espada de acero).*

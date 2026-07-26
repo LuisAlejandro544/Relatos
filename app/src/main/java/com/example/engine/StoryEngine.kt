@@ -207,8 +207,8 @@ object StoryEngine {
             choices = listOf(
                 StoryChoice(
                     id = "choice_finish_honor",
-                    text = "👑 Completar Epílogo (Título: Guardián del Feudo) e ir al Cap. 1",
-                    targetSceneId = "SCENE_VICTORY_DEMO"
+                    text = "🚀 Comenzar Capítulo 1: Viviendo la Vida Dura",
+                    targetSceneId = "SCENE_CAP1_INTRO"
                 )
             )
         ),
@@ -220,8 +220,8 @@ object StoryEngine {
             choices = listOf(
                 StoryChoice(
                     id = "choice_finish_fortify",
-                    text = "🛡️ Completar Epílogo (Título: Defensor de la Taberna) e ir al Cap. 1",
-                    targetSceneId = "SCENE_VICTORY_DEMO"
+                    text = "🚀 Comenzar Capítulo 1: Viviendo la Vida Dura",
+                    targetSceneId = "SCENE_CAP1_INTRO"
                 )
             )
         ),
@@ -259,8 +259,8 @@ object StoryEngine {
             choices = listOf(
                 StoryChoice(
                     id = "choice_finish_merc",
-                    text = "🏆 Completar Epílogo (Título: Espada a Sueldo) e ir al Cap. 1",
-                    targetSceneId = "SCENE_VICTORY_DEMO"
+                    text = "🚀 Comenzar Capítulo 1: Viviendo la Vida Dura",
+                    targetSceneId = "SCENE_CAP1_INTRO"
                 )
             )
         ),
@@ -272,8 +272,8 @@ object StoryEngine {
             choices = listOf(
                 StoryChoice(
                     id = "choice_finish_duel",
-                    text = "⚔️ Completar Epílogo (Título: Cabo de Vanguardia) e ir al Cap. 1",
-                    targetSceneId = "SCENE_VICTORY_DEMO"
+                    text = "🚀 Comenzar Capítulo 1: Viviendo la Vida Dura",
+                    targetSceneId = "SCENE_CAP1_INTRO"
                 )
             )
         ),
@@ -310,8 +310,8 @@ object StoryEngine {
             choices = listOf(
                 StoryChoice(
                     id = "choice_finish_outlaw_hero",
-                    text = "🌲 Completar Epílogo (Título: Fantasma de Oakhaven) e ir al Cap. 1",
-                    targetSceneId = "SCENE_VICTORY_DEMO"
+                    text = "🚀 Comenzar Capítulo 1: Viviendo la Vida Dura",
+                    targetSceneId = "SCENE_CAP1_INTRO"
                 )
             )
         ),
@@ -323,8 +323,8 @@ object StoryEngine {
             choices = listOf(
                 StoryChoice(
                     id = "choice_finish_outlaw_greed",
-                    text = "💰 Completar Epílogo (Título: Rey de los Proscritos) e ir al Cap. 1",
-                    targetSceneId = "SCENE_VICTORY_DEMO"
+                    text = "🚀 Comenzar Capítulo 1: Viviendo la Vida Dura",
+                    targetSceneId = "SCENE_CAP1_INTRO"
                 )
             )
         ),
@@ -361,8 +361,8 @@ object StoryEngine {
             choices = listOf(
                 StoryChoice(
                     id = "choice_finish_shadow",
-                    text = "🗝️ Completar Epílogo (Título: Agente Clandestino) e ir al Cap. 1",
-                    targetSceneId = "SCENE_VICTORY_DEMO"
+                    text = "🚀 Comenzar Capítulo 1: Viviendo la Vida Dura",
+                    targetSceneId = "SCENE_CAP1_INTRO"
                 )
             )
         ),
@@ -374,8 +374,8 @@ object StoryEngine {
             choices = listOf(
                 StoryChoice(
                     id = "choice_finish_boss",
-                    text = "♟️ Completar Epílogo (Título: Señor de las Sombras) e ir al Cap. 1",
-                    targetSceneId = "SCENE_VICTORY_DEMO"
+                    text = "🚀 Comenzar Capítulo 1: Viviendo la Vida Dura",
+                    targetSceneId = "SCENE_CAP1_INTRO"
                 )
             )
         ),
@@ -387,14 +387,219 @@ object StoryEngine {
             narrativeTemplate = "¡Felicidades, **{HERO_NAME}**! Has completado la totalidad del Prólogo y su Epílogo Ramificado. Comenzaste como un joven tabernero de 20 años en la miseria ('pelabola') y has forjado tu propio destino único a través del coraje, la astucia y el acero.\n\nEl Capítulo 1 te espera en los grandes caminos de Aethelgard. ¿Qué hazañas aguardan en tu diario de campaña?",
             choices = listOf(
                 StoryChoice(
+                    id = "choice_start_cap1_direct",
+                    text = "🚀 Entrar al Capítulo 1: Viviendo la Vida Dura",
+                    targetSceneId = "SCENE_CAP1_INTRO"
+                ),
+                StoryChoice(
                     id = "choice_restart_game",
                     text = "🔄 Reiniciar aventuras para probar otra rama del Epílogo",
                     targetSceneId = "SCENE_RESTART"
+                )
+            )
+        ),
+
+        // =========================================================================
+        // CAPÍTULO 1: VIVIENDO LA VIDA DURA
+        // =========================================================================
+
+        "SCENE_CAP1_INTRO" to StoryScene(
+            id = "SCENE_CAP1_INTRO",
+            title = "CAPÍTULO 1: Viviendo la Vida Dura - La Cruda Realidad",
+            narrativeTemplate = "Han transcurrido 7 días exactos desde los acontecimientos en *'La Jarra Mellada'*. Tienes 20 años y tus manos arden llenas de ampollas. Sostienes una rama gruesa de roble tallada a cuchillo, tratando de repetir las estocadas que aprendiste solo.\n\nLlevas una semana comiendo pan duro y caldo de cebollas en un cobertizo abandonado junto al viejo molino. Al pasar frente a la taberna, ves a tu padre **Garrick** cargando un barril. Te mira fijamente durante tres segundos agonizantes... luego escupe al suelo con rencor y cierra la puerta de un portazo.\n\nMientras caminas con el estómago rugiendo hacia la plaza del mercado, el galope de tres caballos y el ladrido sordo de un perro de caza hacen eco en las calles empedradas...",
+            choices = listOf(
+                StoryChoice(
+                    id = "choice_cap1_advance_bounty",
+                    text = "🐺 Avanzar hacia la plaza y enfrentar a los jinetes",
+                    targetSceneId = "SCENE_CAP1_BOUNTY_HUNTERS"
+                )
+            )
+        ),
+
+        "SCENE_CAP1_BOUNTY_HUNTERS" to StoryScene(
+            id = "SCENE_CAP1_BOUNTY_HUNTERS",
+            title = "Capítulo 1: Los Cazarrecompensas de la Compañía",
+            narrativeTemplate = "Tres jinetes con capas llenas de barro de viaje te cierran el paso. El hombre del centro, alto, con una cota de malla desgastada y la mirada dura de quien ha matado por monedas, desmonta lentamente.\n\n—'Atento, muchacho' —dice con voz rasposa—. 'Soy el **Capitán Valerius**, de la Compañía del Perro Hambriento. A mi izquierda está **Kaelen \"Dedos Fríos\"**, que no duda en poner un virote entre los ojos de los curiosos, y ella es **Dara \"La Tuerta\"**. Buscamos a una alimaña llamado **Vance \"Mano de Humo\"**. Robó una espada corta de acero en la forja de Olaf y las joyas del intendente'.\n\nDara tira de la cadena del sabueso *'Muerdecapas'*, que olfatea el aire cerca de tus botas desgastadas.\n\n—'La guardia del feudo paga 40 monedas de plata por él. Tú tienes cara de vagabundear por todos los rincones de este pueblo de mala muerte. **Vance era cliente habitual de la taberna y sabemos que solían beber juntos.** ¿Lo has visto o no, **{HERO_NAME}**?'",
+            choices = listOf(
+                StoryChoice(
+                    id = "choice_cap1_sell_info",
+                    text = "🪙 Traicionar a tu viejo amigo Vance: \"Sé dónde se oculta Vance... les diré por 5 monedas de plata.\"",
+                    targetSceneId = "SCENE_CAP1_SELL_OUT",
+                    goldReward = 5,
+                    expReward = 20,
+                    itemAdded = "Monedas del Perro Hambriento"
                 ),
                 StoryChoice(
-                    id = "choice_stay_log",
-                    text = "📜 Repasar la encrucijada inicial en la Taberna",
-                    targetSceneId = "SCENE_TAVERN_INTRO"
+                    id = "choice_cap1_stubborn_refuse",
+                    text = "🛡️ Desafío Defensivo: \"Atrás, comadrejas de camino. Vance comió en mi mesa y no seré el perro faldero de unos tragabarros del feudo. Apártense o les haré tragar sus virotes.\"",
+                    targetSceneId = "SCENE_CAP1_STUBBORN_STAND",
+                    expReward = 30,
+                    itemAdded = "Respeto de los Aldeanos"
+                ),
+                StoryChoice(
+                    id = "choice_cap1_trick_and_hunt",
+                    text = "🏹 Dar pista falsa: \"Lo vi ir hacia el sur...\" (Mientes para ir tú solo al viejo molino norte).",
+                    targetSceneId = "SCENE_CAP1_SOLO_HUNT",
+                    expReward = 40,
+                    itemAdded = "Mapa del Viejo Molino"
+                ),
+                StoryChoice(
+                    id = "choice_cap1_shadow_alliance",
+                    text = "🤝 Postularte como Mediador: \"Vance no entregará las joyas sin luchar. Déjenme ir al frente con ustedes.\"",
+                    targetSceneId = "SCENE_CAP1_MEDIATOR_PACT",
+                    goldReward = 10,
+                    expReward = 35,
+                    itemAdded = "Salvoconducto de Valerius"
+                )
+            )
+        ),
+
+        "SCENE_CAP1_SELL_OUT" to StoryScene(
+            id = "SCENE_CAP1_SELL_OUT",
+            title = "El Precio de la Lealtad",
+            narrativeTemplate = "El Capitán Valerius sonríe con frialdad y lanza un saquito con 5 monedas de plata a tus pies.\n\n—'Me gusta la gente pragmática, **{HERO_NAME}**.'\n\nRecoges las monedas del barro y les revelas que Vance solía esconderse en el sótano del viejo molino abandonado al norte. Tienes suficiente dinero para comer caliente por una semana, pero el remordimiento por vender a tu viejo compañero de cerveza pesa en tu pecho mientras la patrulla parte al galope...",
+            choices = listOf(
+                StoryChoice(
+                    id = "choice_cap1_finish_part1",
+                    text = "📜 Continuar la aventura en la siguiente etapa del Capítulo 1",
+                    targetSceneId = "SCENE_CAP1_SUMMARY_DEMO"
+                )
+            )
+        ),
+
+        "SCENE_CAP1_STUBBORN_STAND" to StoryScene(
+            id = "SCENE_CAP1_STUBBORN_STAND",
+            title = "Desafío en la Plaza de Oakhaven",
+            narrativeTemplate = "Tus palabras resonando con veneno hacen que Kaelen encaje el virote en su ballesta con un chasquido metálico seco. Dara suelta medio metro de cadena del rabioso sabueso *'Muerdecapas'*, que te enseña sus colmillos ensangrentados. El Capitán Valerius desmonta despacio, acariciando la empuñadura de su espada ancha.\n\n—'¿Comadrejas de camino? Te falta mucho acero en el cinto para escupir tanta baba, estúpido cachorro de tabernero' —gruñe Valerius con una sonrisa sanguinaria—. 'O abres esa boca mugrienta para decirnos dónde se oculta Vance, o te enseñamos modales a garrotazos en mitad del barro.'\n\nLos campesinos se refugian tras las ventanas. Tienes a la patrulla encima y las manos apretadas sobre tu garrote de roble.",
+            choices = listOf(
+                StoryChoice(
+                    id = "choice_cap1_attack_valerius",
+                    text = "🗡️ Embestida Sorpresa: \"¡El único que aprenderá modales eres tú!\" (Golpear a Valerius con el garrote)",
+                    targetSceneId = "SCENE_CAP1_FIGHT_VALERIUS",
+                    expReward = 50,
+                    itemAdded = "Sangre de Valerius"
+                ),
+                StoryChoice(
+                    id = "choice_cap1_taunt_dog",
+                    text = "🐕 Provocar al Perro: Lanzar una piedra pesada a Muerdecapas para desorganizar a los cazarrecompensas",
+                    targetSceneId = "SCENE_CAP1_FIGHT_DOG_CHAOS",
+                    expReward = 45,
+                    itemAdded = "Colmillo de Sabueso"
+                ),
+                StoryChoice(
+                    id = "choice_cap1_call_villagers",
+                    text = "🗣️ Clamor Popular: \"¡Gente de Oakhaven, miren cómo estos mercenarios amenazan a un muchacho del pueblo!\"",
+                    targetSceneId = "SCENE_CAP1_FIGHT_ALLEY_BRAWL",
+                    expReward = 40,
+                    itemAdded = "Cerveza de Parroquiano"
+                ),
+                StoryChoice(
+                    id = "choice_cap1_grudge_retreat",
+                    text = "⚖️ Retroceso con Retintín: \"Tranquilos... si tanto les pican las manos, miren en el molino norte antes de que pierda la paciencia.\"",
+                    targetSceneId = "SCENE_CAP1_STUBBORN_GRUDGE",
+                    expReward = 20,
+                    itemAdded = "Rencor de Valerius"
+                )
+            )
+        ),
+
+        "SCENE_CAP1_FIGHT_VALERIUS" to StoryScene(
+            id = "SCENE_CAP1_FIGHT_VALERIUS",
+            title = "Pelea de Callejón: Embestida a Valerius",
+            narrativeTemplate = "Antes de que Valerius termine de desenfundar, avanzas un paso y le asestas un garrotazo seco en el labio. El capitán cae hacia atrás escupiendo sangre y moliendas de diente.\n\n—'¡Maldito engendro!' —grita Dara soltando al perro.\n\nEsquivas por instinto hacia un callejón estrecho. El virote de Kaelen zumba rozándote la oreja e impacta contra un poste de madera. Gracias a tu agilidad de muchacho de 20 años acostumbrado a esquivar borrachos en la taberna, logras perderlos entre las muelas de heno del pueblo, dejando a Valerius furioso y herido.",
+            choices = listOf(
+                StoryChoice(
+                    id = "choice_cap1_finish_fight_valerius",
+                    text = "📜 Escapar victorioso hacia la siguiente etapa del Capítulo 1",
+                    targetSceneId = "SCENE_CAP1_SUMMARY_DEMO"
+                )
+            )
+        ),
+
+        "SCENE_CAP1_FIGHT_DOG_CHAOS" to StoryScene(
+            id = "SCENE_CAP1_FIGHT_DOG_CHAOS",
+            title = "Pelea de Callejón: El Caos de Muerdecapas",
+            narrativeTemplate = "Rápidamente recoges un guijarro afilado y se lo asestas en el hocico al sabueso. *Muerdecapas* aúlla de dolor, se da la vuelta enloquecido y le hinca los dientes en la bota de cuero a Dara.\n\n—'¡Suéltame, perro del demonio!' —chilla la rastreadora intentando zafarse.\n\nLa yegua de Kaelen se encabrita ante los ladridos y patea el poste de la tienda de frutas. Aprovechas la trifulca y el descontrol general para asestarle un fuerte garrotazo en la rodilla al ballestero antes de desaparecer corriendo hacia las afueras.",
+            choices = listOf(
+                StoryChoice(
+                    id = "choice_cap1_finish_fight_dog",
+                    text = "📜 Escapar en medio del caos hacia la siguiente etapa del Capítulo 1",
+                    targetSceneId = "SCENE_CAP1_SUMMARY_DEMO"
+                )
+            )
+        ),
+
+        "SCENE_CAP1_FIGHT_ALLEY_BRAWL" to StoryScene(
+            id = "SCENE_CAP1_FIGHT_ALLEY_BRAWL",
+            title = "Pelea de Callejón: La Revuelta de los Parroquianos",
+            narrativeTemplate = "Tu grito hace eco en la plaza. Dos viejos parroquianos de la taberna de tu padre, agradecidos por cómo defendiste *'La Jarra Mellada'* hace una semana, salen del callejón y vuelcan un carro lleno de toneles de cerveza vacíos sobre el caballo de Kaelen.\n\nSe arma una trifulca comunitaria. Intercambias puñetazos pesados con Valerius, encajando un nudillazo en el pómulo pero devolviéndole un codazo en la garganta. La gente del pueblo abuchea a los mercenarios hasta que la patrulla se ve obligada a replegarse temporalmente.",
+            choices = listOf(
+                StoryChoice(
+                    id = "choice_cap1_finish_fight_brawl",
+                    text = "📜 Celebrar con los vecinos y avanzar en el Capítulo 1",
+                    targetSceneId = "SCENE_CAP1_SUMMARY_DEMO"
+                )
+            )
+        ),
+
+        "SCENE_CAP1_STUBBORN_GRUDGE" to StoryScene(
+            id = "SCENE_CAP1_STUBBORN_GRUDGE",
+            title = "Desescalada con Rencor",
+            narrativeTemplate = "Viendo el virote de Kaelen apuntando directo a tu frente, te tragas el orgullo pero mantienes el tono desafiante:\n\n—'Si tanto les pican las manos, vayan al molino abandonado del norte a buscar a Vance antes de que pierda la paciencia con ustedes.'\n\nValerius se limpia el barro de las botas y te señala con el dedo índice amenazadoramente.\n\n—'Si nos mentiste, volveré por tu cabeza, mocoso.'\n\nLa patrulla parte al galope dejando una nube de polvo en la plaza.",
+            choices = listOf(
+                StoryChoice(
+                    id = "choice_cap1_finish_stubborn_grudge",
+                    text = "📜 Continuar la aventura en la siguiente etapa del Capítulo 1",
+                    targetSceneId = "SCENE_CAP1_SUMMARY_DEMO"
+                )
+            )
+        ),
+
+        "SCENE_CAP1_SOLO_HUNT" to StoryScene(
+            id = "SCENE_CAP1_SOLO_HUNT",
+            title = "La Carrera hacia el Molino",
+            narrativeTemplate = "Engañas con destreza al Capitán Valerius indicándole el camino del sur. Los tres jinetes parten al galope hacia la dirección equivocada.\n\nCon el corazón latiéndote a mil por hora, te adentras apresuradamente por los matorrales del norte rumbo al viejo molino abandonado. Debes encontrar a tu amigo Vance, advertirle de los cazarrecompensas y decidir qué hacer con la espada de acero de la forja de Olaf...",
+            choices = listOf(
+                StoryChoice(
+                    id = "choice_cap1_finish_part1_3",
+                    text = "📜 Continuar la aventura en la siguiente etapa del Capítulo 1",
+                    targetSceneId = "SCENE_CAP1_SUMMARY_DEMO"
+                )
+            )
+        ),
+
+        "SCENE_CAP1_MEDIATOR_PACT" to StoryScene(
+            id = "SCENE_CAP1_MEDIATOR_PACT",
+            title = "El Mediador de Oakhaven",
+            narrativeTemplate = "El Capitán Valerius evalúa tu propuesta en silencio durante largos segundos.\n\n—'De acuerdo, **{HERO_NAME}**. Tú irás primero a parlamentar con Vance en el molino. Si nos entrega el acero y las joyas intactas sin derramar sangre de mis hombres, te daré una tajada de las 40 monedas de plata. Pero si nos traicionas, Muerdecapas cenará con tus tripas.'\n\nTe entregan un salvoconducto provisional mientras marchas junto a la patrulla.",
+            choices = listOf(
+                StoryChoice(
+                    id = "choice_cap1_finish_part1_4",
+                    text = "📜 Continuar la aventura en la siguiente etapa del Capítulo 1",
+                    targetSceneId = "SCENE_CAP1_SUMMARY_DEMO"
+                )
+            )
+        ),
+
+        "SCENE_CAP1_SUMMARY_DEMO" to StoryScene(
+            id = "SCENE_CAP1_SUMMARY_DEMO",
+            title = "Capítulo 1: 'Viviendo la Vida Dura' - Avance Guardado",
+            narrativeTemplate = "¡Excelente progreso, **{HERO_NAME}**! Has completado el inicio del Capítulo 1: 'Viviendo la Vida Dura'.\n\nEnfrentaste la miseria, la mirada fría de tu padre Garrick y la llegada de la Compañía del Perro Hambriento (Capitán Valerius, Kaelen y Dara). Tus decisiones respecto a tu viejo amigo Vance 'Mano de Humo' han marcado el tono de tu reputación moral en Oakhaven.\n\n¿Qué acción deseas realizar ahora?",
+            choices = listOf(
+                StoryChoice(
+                    id = "choice_stay_cap1_bounty",
+                    text = "🔄 Repetir el encuentro con los cazarrecompensas",
+                    targetSceneId = "SCENE_CAP1_BOUNTY_HUNTERS"
+                ),
+                StoryChoice(
+                    id = "choice_return_epilogue_hub",
+                    text = "📜 Volver a la Encrucijada del Epílogo",
+                    targetSceneId = "SCENE_EPILOGUE_BRANCH_HUB"
+                ),
+                StoryChoice(
+                    id = "choice_restart_all",
+                    text = "🏰 Reiniciar desde el Prólogo en la Taberna",
+                    targetSceneId = "SCENE_RESTART"
                 )
             )
         )
