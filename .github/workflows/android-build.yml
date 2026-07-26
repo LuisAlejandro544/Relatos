@@ -27,11 +27,10 @@ jobs:
 
       - name: Generate Debug Keystore on-the-fly
         run: |
-          mkdir -p ~/.android
-          if [ ! -f ~/.android/debug.keystore ]; then
-            echo "Generando debug.keystore en caliente..."
+          if [ ! -f ./debug.keystore ]; then
+            echo "Generando debug.keystore en caliente en la raíz del proyecto..."
             keytool -genkey -v \
-              -keystore ~/.android/debug.keystore \
+              -keystore ./debug.keystore \
               -storepass android \
               -alias androiddebugkey \
               -keypass android \
