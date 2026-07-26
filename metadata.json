@@ -1,0 +1,6 @@
+{
+  "name": "Relatos de Aethelgard RPG",
+  "description": "Juego RPG interactivo basado en texto con toma de decisiones y ambientación medieval.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
