@@ -24,8 +24,6 @@ jobs:
 
       - name: Setup Gradle Cache
         uses: gradle/actions/setup-gradle@v3
-        with:
-          gradle-version: wrapper
 
       - name: Generate Debug Keystore on-the-fly
         run: |
@@ -43,11 +41,8 @@ jobs:
               -dname "CN=Android Debug, O=Android, C=US"
           fi
 
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew || true
-
       - name: Build Debug APK
-        run: ./gradlew assembleDebug --stacktrace
+        run: gradle assembleDebug --stacktrace
 
       - name: Upload Debug APK Artifact
         uses: actions/upload-artifact@v4
